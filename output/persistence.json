@@ -1,0 +1,336 @@
+[
+    {
+        "id": "8578dd02-ea85-49d9-b6f6-ce0738c323ff",
+        "timestamp": "2026-07-05T11:50:08.376504Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_success",
+        "log_source": "windows_event_security",
+        "raw_log": "An account was successfully logged on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Target: User: hpotter Domain: corp.sentinel.sim. Logon Type: 3. Logon ID: 0x6671ad1",
+        "custom_fields": {
+            "winlog_event_id": 4624,
+            "logon_type": 3
+        }
+    },
+    {
+        "id": "2cd02704-6be0-4dd2-bf20-5f0b51391fa6",
+        "timestamp": "2026-07-05T11:50:44.071588Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 2679,
+            "name": "schtasks.exe",
+            "executable": "C:\\Windows\\System32\\schtasks.exe",
+            "command_line": "C:\\Windows\\System32\\schtasks.exe /create /tn \"WinUpdate\" /tr \"C:\\temp\\svc.exe\" /sc onlogon /ru \"SYSTEM\"",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\schtasks.exe Command Line: C:\\Windows\\System32\\schtasks.exe /create /tn \"WinUpdate\" /tr \"C:\\temp\\svc.exe\" /sc onlogon /ru \"SYSTEM\" Process ID: 0xa77",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "962be198-3345-4dd2-b57e-e117fcac1afc",
+        "timestamp": "2026-07-05T11:50:46.990282Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "configuration",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A scheduled task was created. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Task Name: \\WinUpdate. Task Content: C:\\temp\\svc.exe.",
+        "custom_fields": {
+            "winlog_event_id": 4698,
+            "task_name": "WinUpdate"
+        }
+    },
+    {
+        "id": "c8d46978-afe1-4d4a-bd83-101e03ab782f",
+        "timestamp": "2026-07-05T11:51:29.120791Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 2424,
+            "name": "reg.exe",
+            "executable": "C:\\Windows\\System32\\reg.exe",
+            "command_line": "C:\\Windows\\System32\\reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"Svc\" /t REG_SZ /d \"C:\\temp\\svc.exe\" /f",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\reg.exe Command Line: C:\\Windows\\System32\\reg.exe add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\" /v \"Svc\" /t REG_SZ /d \"C:\\temp\\svc.exe\" /f Process ID: 0x978",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "b3cd7178-9740-4a67-a5cd-c58616e61211",
+        "timestamp": "2026-07-05T11:52:17.130307Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "script_execution",
+        "log_source": "powershell",
+        "raw_log": "Creating Scriptblock text (1 of 1):\nRegister-ScheduledTask -Action (New-ScheduledTaskAction -Execute 'C:\\temp\\svc.exe') -TaskName 'Svc'\nScriptBlock ID: 713f04e1-f0ad-4932-ad1e-ed689434055c Path: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "custom_fields": {
+            "winlog_event_id": 4104
+        }
+    },
+    {
+        "id": "af90aab4-4dcf-4f7c-bc01-f4389952f548",
+        "timestamp": "2026-07-05T11:53:20.544537Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 2535,
+            "name": "net.exe",
+            "executable": "C:\\Windows\\System32\\net.exe",
+            "command_line": "C:\\Windows\\System32\\net.exe user backupsvc P@ssw0rd123! /add",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\net.exe Command Line: C:\\Windows\\System32\\net.exe user backupsvc P@ssw0rd123! /add Process ID: 0x9e7",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "a398d540-1096-4a19-8e48-27b4a15830b8",
+        "timestamp": "2026-07-05T11:53:21.680733Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "user_creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A user account was created. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  New Account: Security ID: S-1-5-21-123456789-123456789-1234 Account Name: backupsvc.",
+        "custom_fields": {
+            "winlog_event_id": 4720,
+            "target_user": "backupsvc"
+        }
+    },
+    {
+        "id": "45ac537e-d432-4e45-89ba-ee82af1d25ef",
+        "timestamp": "2026-07-05T11:53:30.089049Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 9279,
+            "name": "net.exe",
+            "executable": "C:\\Windows\\System32\\net.exe",
+            "command_line": "C:\\Windows\\System32\\net.exe localgroup administrators backupsvc /add",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\net.exe Command Line: C:\\Windows\\System32\\net.exe localgroup administrators backupsvc /add Process ID: 0x243f",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "7a8fc019-2b51-49b9-abbb-58fb7f5f6bdd",
+        "timestamp": "2026-07-05T11:53:30.249436Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "group_membership_modification",
+        "log_source": "windows_event_security",
+        "raw_log": "A member was added to a security-enabled local group. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Member: Security ID: S-1-5-21-123456789-123456789-1234 Account Name: backupsvc. Group: Security ID: S-1-5-32-544 Group Name: Administrators.",
+        "custom_fields": {
+            "winlog_event_id": 4732,
+            "group_name": "Administrators",
+            "member_name": "backupsvc"
+        }
+    }
+]

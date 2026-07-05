@@ -1,0 +1,259 @@
+- name: "administrator"
+  id: "user-admin"
+  domain: "corp.sentinel.sim"
+  roles: ["Domain Administrator", "Enterprise Administrator"]
+  email: "admin@corp.sentinel.sim"
+  department: "IT Infrastructure"
+  manager: "asmith"
+  privilege_level: "domain_admin"
+  risk_score: 15
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T09:00:00Z"
+
+- name: "asmith"
+  id: "user-asmith"
+  domain: "corp.sentinel.sim"
+  roles: ["IT Director"]
+  email: "asmith@corp.sentinel.sim"
+  department: "IT Infrastructure"
+  manager: "ceo"
+  privilege_level: "elevated"
+  risk_score: 10
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:30:00Z"
+
+- name: "bjohnson"
+  id: "user-bjohnson"
+  domain: "corp.sentinel.sim"
+  roles: ["Database Administrator"]
+  email: "bjohnson@corp.sentinel.sim"
+  department: "Database Admin"
+  manager: "asmith"
+  privilege_level: "elevated"
+  risk_score: 25
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:45:00Z"
+
+- name: "cbrown"
+  id: "user-cbrown"
+  domain: "corp.sentinel.sim"
+  roles: ["Systems Administrator"]
+  email: "cbrown@corp.sentinel.sim"
+  department: "IT Infrastructure"
+  manager: "asmith"
+  privilege_level: "elevated"
+  risk_score: 20
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T09:15:00Z"
+
+- name: "dprince"
+  id: "user-dprince"
+  domain: "corp.sentinel.sim"
+  roles: ["Chief Financial Officer"]
+  email: "dprince@corp.sentinel.sim"
+  department: "Finance"
+  manager: "ceo"
+  privilege_level: "elevated"
+  risk_score: 30
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T09:30:00Z"
+
+- name: "eelric"
+  id: "user-eelric"
+  domain: "corp.sentinel.sim"
+  roles: ["Senior Software Engineer"]
+  email: "eelric@corp.sentinel.sim"
+  department: "Engineering"
+  manager: "mscott"
+  privilege_level: "standard"
+  risk_score: 45
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T10:00:00Z"
+
+- name: "fgallagher"
+  id: "user-fgallagher"
+  domain: "corp.sentinel.sim"
+  roles: ["HR Recruiter"]
+  email: "fgallagher@corp.sentinel.sim"
+  department: "HR"
+  manager: "asmith"
+  privilege_level: "standard"
+  risk_score: 10
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T09:05:00Z"
+
+- name: "gcostanza"
+  id: "user-gcostanza"
+  domain: "corp.sentinel.sim"
+  roles: ["Financial Analyst"]
+  email: "gcostanza@corp.sentinel.sim"
+  department: "Finance"
+  manager: "dprince"
+  privilege_level: "standard"
+  risk_score: 75
+  mfa_enabled: false
+  account_disabled: false
+  last_login: "2026-07-04T09:45:00Z"
+
+- name: "hpotter"
+  id: "user-hpotter"
+  domain: "corp.sentinel.sim"
+  roles: ["Marketing Coordinator"]
+  email: "hpotter@corp.sentinel.sim"
+  department: "Marketing"
+  manager: "ceo"
+  privilege_level: "standard"
+  risk_score: 35
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:50:00Z"
+
+- name: "iadler"
+  id: "user-iadler"
+  domain: "corp.sentinel.sim"
+  roles: ["General Counsel"]
+  email: "iadler@corp.sentinel.sim"
+  department: "Legal"
+  manager: "ceo"
+  privilege_level: "elevated"
+  risk_score: 15
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T10:15:00Z"
+
+- name: "jwatson"
+  id: "user-jwatson"
+  domain: "corp.sentinel.sim"
+  roles: ["Sales Executive"]
+  email: "jwatson@corp.sentinel.sim"
+  department: "Sales"
+  manager: "ceo"
+  privilege_level: "standard"
+  risk_score: 40
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:20:00Z"
+
+- name: "kmikaelson"
+  id: "user-kmikaelson"
+  domain: "corp.sentinel.sim"
+  roles: ["DevOps Lead"]
+  email: "kmikaelson@corp.sentinel.sim"
+  department: "Engineering"
+  manager: "mscott"
+  privilege_level: "elevated"
+  risk_score: 50
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T10:30:00Z"
+
+- name: "llane"
+  id: "user-llane"
+  domain: "corp.sentinel.sim"
+  roles: ["Database Administrator"]
+  email: "llane@corp.sentinel.sim"
+  department: "Database Admin"
+  manager: "asmith"
+  privilege_level: "standard"
+  risk_score: 20
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:55:00Z"
+
+- name: "mscott"
+  id: "user-mscott"
+  domain: "corp.sentinel.sim"
+  roles: ["Engineering Director"]
+  email: "mscott@corp.sentinel.sim"
+  department: "Engineering"
+  manager: "ceo"
+  privilege_level: "elevated"
+  risk_score: 55
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:35:00Z"
+
+- name: "ndrew"
+  id: "user-ndrew"
+  domain: "corp.sentinel.sim"
+  roles: ["Security Engineer"]
+  email: "ndrew@corp.sentinel.sim"
+  department: "IT Security"
+  manager: "asmith"
+  privilege_level: "elevated"
+  risk_score: 5
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:00:00Z"
+
+- name: "omartinez"
+  id: "user-omartinez"
+  domain: "corp.sentinel.sim"
+  roles: ["Infrastructure Engineer"]
+  email: "omartinez@corp.sentinel.sim"
+  department: "IT Infrastructure"
+  manager: "asmith"
+  privilege_level: "standard"
+  risk_score: 15
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T09:10:00Z"
+
+- name: "pparker"
+  id: "user-pparker"
+  domain: "corp.sentinel.sim"
+  roles: ["IT Intern"]
+  email: "pparker@corp.sentinel.sim"
+  department: "IT Infrastructure"
+  manager: "asmith"
+  privilege_level: "standard"
+  risk_score: 60
+  mfa_enabled: false
+  account_disabled: false
+  last_login: "2026-07-04T09:20:00Z"
+
+- name: "qsmith"
+  id: "user-qsmith"
+  domain: "corp.sentinel.sim"
+  roles: ["Quality Assurance Analyst"]
+  email: "qsmith@corp.sentinel.sim"
+  department: "Engineering"
+  manager: "mscott"
+  privilege_level: "standard"
+  risk_score: 25
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T10:05:00Z"
+
+- name: "rwatson"
+  id: "user-rwatson"
+  domain: "corp.sentinel.sim"
+  roles: ["Sales Agent"]
+  email: "rwatson@corp.sentinel.sim"
+  department: "Sales"
+  manager: "jwatson"
+  privilege_level: "standard"
+  risk_score: 30
+  mfa_enabled: true
+  account_disabled: false
+  last_login: "2026-07-04T08:25:00Z"
+
+- name: "svc_backup"
+  id: "user-svc_backup"
+  domain: "corp.sentinel.sim"
+  roles: ["Backup Service Account"]
+  email: "svc_backup@corp.sentinel.sim"
+  department: "IT Infrastructure"
+  manager: "asmith"
+  privilege_level: "service"
+  risk_score: 50
+  mfa_enabled: false
+  account_disabled: false
+  last_login: "2026-07-04T00:00:00Z"

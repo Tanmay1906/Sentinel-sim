@@ -1,0 +1,11 @@
+domain_name: "corp.sentinel.sim"
+org_name: "SentinelCorp"
+external_gateway: "192.168.1.1"
+dns_servers:
+  - "1.1.1.1"
+  - "8.8.8.8"
+network_zones:
+  DMZ: "10.0.10.0/24"
+  Corporate: "10.0.20.0/24"
+  Production: "10.0.30.0/24"
+  Development: "10.0.40.0/24"

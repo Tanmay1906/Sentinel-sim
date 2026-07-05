@@ -47,7 +47,7 @@ class WindowsEventGenerator(BaseGenerator):
     """Refined Generator for high-fidelity Windows Security Events."""
 
     def get_supported_event_types(self) -> List[str]:
-        return ["4624", "4625", "4688", "4720", "4732", "4104", "4698", "1102"]
+        return ["4624", "4625", "4688", "4697", "4698", "4720", "4728", "4732", "4104", "1102"]
 
     def generate_4624(self, host: Host, user: User, logon_type: int = 3) -> LogEvent:
         """Success Logon."""
@@ -95,6 +95,65 @@ class WindowsEventGenerator(BaseGenerator):
             f"ScriptBlock ID: {uuid4()} Path: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
         )
         event.custom_fields = {"winlog_event_id": 4104}
+        return event
+
+    def generate_4698(self, host: Host, user: User, task_name: str = "WinUpdate", task_content: Optional[str] = None) -> LogEvent:
+        """Scheduled Task Created."""
+        event = EventFactory.create_base(self, host, user, "configuration", "creation")
+        event.log_source = "windows_event_security"
+        event.raw_log = (
+            f"A scheduled task was created. {WIN_EVENT_BASE} "
+            f"Task Name: \\{task_name}. "
+            f"Task Content: {task_content or 'C:\\temp\\svc.exe'}."
+        )
+        event.custom_fields = {"winlog_event_id": 4698, "task_name": task_name}
+        return event
+
+    def generate_4697(self, host: Host, user: User, service_name: str = "Svc", service_file: str = "C:\\temp\\svc.exe") -> LogEvent:
+        """A service was installed in the system."""
+        event = EventFactory.create_base(self, host, user, "configuration", "creation")
+        event.log_source = "windows_event_security"
+        event.raw_log = (
+            f"A service was installed in the system. {WIN_EVENT_BASE} "
+            f"Service Name: {service_name}. "
+            f"Service File Name: {service_file}."
+        )
+        event.custom_fields = {"winlog_event_id": 4697, "service_name": service_name}
+        return event
+
+    def generate_4720(self, host: Host, user: User, created_username: str = "backupsvc") -> LogEvent:
+        """A user account was created."""
+        event = EventFactory.create_base(self, host, user, "iam", "user_creation")
+        event.log_source = "windows_event_security"
+        event.raw_log = (
+            f"A user account was created. {WIN_EVENT_BASE} "
+            f"New Account: Security ID: S-1-5-21-123456789-123456789-1234 Account Name: {created_username}."
+        )
+        event.custom_fields = {"winlog_event_id": 4720, "target_user": created_username}
+        return event
+
+    def generate_4728(self, host: Host, user: User, group_name: str = "Domain Admins", member_name: str = "backupsvc") -> LogEvent:
+        """A member was added to a security-enabled global group."""
+        event = EventFactory.create_base(self, host, user, "iam", "group_membership_modification")
+        event.log_source = "windows_event_security"
+        event.raw_log = (
+            f"A member was added to a security-enabled global group. {WIN_EVENT_BASE} "
+            f"Member: Security ID: S-1-5-21-123456789-123456789-1234 Account Name: {member_name}. "
+            f"Group: Security ID: S-1-5-21-123456789-123456789-512 Group Name: {group_name}."
+        )
+        event.custom_fields = {"winlog_event_id": 4728, "group_name": group_name, "member_name": member_name}
+        return event
+
+    def generate_4732(self, host: Host, user: User, group_name: str = "Administrators", member_name: str = "backupsvc") -> LogEvent:
+        """A member was added to a security-enabled local group."""
+        event = EventFactory.create_base(self, host, user, "iam", "group_membership_modification")
+        event.log_source = "windows_event_security"
+        event.raw_log = (
+            f"A member was added to a security-enabled local group. {WIN_EVENT_BASE} "
+            f"Member: Security ID: S-1-5-21-123456789-123456789-1234 Account Name: {member_name}. "
+            f"Group: Security ID: S-1-5-32-544 Group Name: {group_name}."
+        )
+        event.custom_fields = {"winlog_event_id": 4732, "group_name": group_name, "member_name": member_name}
         return event
 
     def generate_1102(self, host: Host, user: User) -> LogEvent:

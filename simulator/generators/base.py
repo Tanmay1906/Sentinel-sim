@@ -2,6 +2,7 @@ import random
 from abc import ABC, abstractmethod
 from datetime import datetime, timedelta, timezone
 from typing import Any, Dict, List, Optional
+# pyrefly: ignore [missing-import]
 from loguru import logger
 
 from shared.schemas.models.log_event import LogEvent
@@ -72,9 +73,6 @@ class BaseGenerator(ABC):
         self.timeline = TimelineEngine(config.start_time)
         self._jitter_strategy: JitterStrategy = UniformJitterStrategy()
         
-        # Track offset seconds for direct scenario-controlled time advancement
-        self._current_offset_seconds: float = 0.0
-        
         logger.debug(f"Initialized {self.__class__.__name__} with seed {final_seed}")
 
     def _get_simulated_timestamp(self, jitter_range: tuple[float, float] = (0.1, 2.0)) -> datetime:
@@ -97,15 +95,7 @@ class BaseGenerator(ABC):
         Advances the generator's internal simulation clock.
         Used by attack scenarios to control event timing.
         """
-        self._current_offset_seconds += seconds
-
-    @abstractmethod
-    def compose_event(self, **kwargs) -> LogEvent:
-        """
-        Must be implemented by sub-classes to return a fully populated 
-        LogEvent object using the shared ECS-compliant schema.
-        """
-        pass
+        self.timeline.advance(seconds)
 
     @abstractmethod
     def get_supported_event_types(self) -> List[str]:

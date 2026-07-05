@@ -1,0 +1,41 @@
+- name: "APT29"
+  actor_type: "apt"
+  motivation: ["Espionage", "Information Theft"]
+  skill_level: "elite"
+  preferred_techniques: ["T1078", "T1053.005", "T1021.001", "T1041"]
+  ip_pool: ["185.220.101.5", "195.12.50.8", "91.219.29.11"]
+  user_agent_pool: [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0"
+  ]
+
+- name: "Malicious_Admin"
+  actor_type: "insider"
+  motivation: ["Sabotage", "Financial Gain"]
+  skill_level: "high"
+  preferred_techniques: ["T1098", "T1136.001", "T1486", "T1490"]
+  ip_pool: ["10.0.20.103"]
+  user_agent_pool: [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  ]
+
+- name: "FIN7"
+  actor_type: "cyber_criminal"
+  motivation: ["Financial Gain"]
+  skill_level: "high"
+  preferred_techniques: ["T1005", "T1074.001", "T1560.001", "T1048.003"]
+  ip_pool: ["45.142.120.50", "185.190.140.22", "82.102.23.5"]
+  user_agent_pool: [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "curl/7.81.0"
+  ]
+
+- name: "LulzSec_Fan"
+  actor_type: "script_kiddie"
+  motivation: ["Ideology", "Notoriety"]
+  skill_level: "low"
+  preferred_techniques: ["T1110.001", "T1033", "T1082", "T1016"]
+  ip_pool: ["103.245.77.12", "190.2.144.9"]
+  user_agent_pool: [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36"
+  ]

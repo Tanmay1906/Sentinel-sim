@@ -1,0 +1,315 @@
+[
+    {
+        "id": "dc8cd527-1f50-42ff-a4ca-53e49a87cbb8",
+        "timestamp": "2026-07-05T11:50:08.884850Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "iam",
+        "event_type": "authentication_success",
+        "log_source": "windows_event_security",
+        "raw_log": "An account was successfully logged on. Subject: Security ID: S-1-5-18 Account Name: SYSTEM Account Domain: NT AUTHORITY.  Target: User: hpotter Domain: corp.sentinel.sim. Logon Type: 3. Logon ID: 0x6671ad1",
+        "custom_fields": {
+            "winlog_event_id": 4624,
+            "logon_type": 3
+        }
+    },
+    {
+        "id": "3d7afa80-8f39-4ff1-a5ec-6dd8d8252228",
+        "timestamp": "2026-07-05T11:50:16.789175Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 2679,
+            "name": "vssadmin.exe",
+            "executable": "C:\\Windows\\System32\\vssadmin.exe",
+            "command_line": "delete shadows /all /quiet",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\vssadmin.exe Command Line: delete shadows /all /quiet Process ID: 0xa77",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "d25bd970-a349-41bc-bfc1-f93d1dbad8fe",
+        "timestamp": "2026-07-05T11:50:19.707868Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 9935,
+            "name": "wbadmin.exe",
+            "executable": "C:\\Windows\\System32\\wbadmin.exe",
+            "command_line": "delete catalog -quiet",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\wbadmin.exe Command Line: delete catalog -quiet Process ID: 0x26cf",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "88470286-d05f-47ce-8dc7-f88f98309803",
+        "timestamp": "2026-07-05T11:50:25.942379Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 7912,
+            "name": "net.exe",
+            "executable": "C:\\Windows\\System32\\net.exe",
+            "command_line": "stop WinDefend",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\net.exe Command Line: stop WinDefend Process ID: 0x1ee8",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "bbe9a1a1-5cb3-4b08-8b1f-51dfcaf362cf",
+        "timestamp": "2026-07-05T11:50:27.300685Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": null,
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "script_execution",
+        "log_source": "powershell",
+        "raw_log": "Creating Scriptblock text (1 of 1):\nSet-MpPreference -DisableRealtimeMonitoring $true\nScriptBlock ID: 2f1a7596-a664-433c-987c-9075e2ad4807 Path: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "custom_fields": {
+            "winlog_event_id": 4104
+        }
+    },
+    {
+        "id": "89767120-796c-428c-87c7-926941d2ba43",
+        "timestamp": "2026-07-05T11:50:34.744906Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 4811,
+            "name": "cipher.exe",
+            "executable": "C:\\Windows\\System32\\cipher.exe",
+            "command_line": "/w:C:",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\cipher.exe Command Line: /w:C: Process ID: 0x12cb",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "300116d5-39a2-4d8f-aec9-cbe910f74d33",
+        "timestamp": "2026-07-05T11:50:37.891813Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 1434,
+            "name": "ransomware.exe",
+            "executable": "C:\\Users\\Public\\ransomware.exe",
+            "command_line": "C:\\Users\\Public\\ransomware.exe --encrypt C:\\Users",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Users\\Public\\ransomware.exe Command Line: C:\\Users\\Public\\ransomware.exe --encrypt C:\\Users Process ID: 0x59a",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    },
+    {
+        "id": "55fd0871-1f76-4373-b85b-73d3f053d35f",
+        "timestamp": "2026-07-05T11:50:49.726199Z",
+        "host": {
+            "hostname": "win-dc-01",
+            "ip": [
+                "10.0.20.10"
+            ],
+            "id": "host-win-dc-01",
+            "os_family": "windows",
+            "os_name": "Windows Server 2022 Datacenter",
+            "architecture": "x64"
+        },
+        "user": {
+            "name": "hpotter",
+            "id": "user-hpotter",
+            "domain": "corp.sentinel.sim",
+            "roles": [
+                "Marketing Coordinator"
+            ],
+            "email": "hpotter@corp.sentinel.sim"
+        },
+        "process": {
+            "pid": 9928,
+            "name": "notepad.exe",
+            "executable": "C:\\Windows\\System32\\notepad.exe",
+            "command_line": "notepad.exe C:\\READ_ME_NOW.txt",
+            "parent_pid": null,
+            "parent_name": null,
+            "hash_sha256": null
+        },
+        "network": null,
+        "file": null,
+        "event_category": "process",
+        "event_type": "creation",
+        "log_source": "windows_event_security",
+        "raw_log": "A new process has been created. Creator: User: hpotter. New Process Name: C:\\Windows\\System32\\notepad.exe Command Line: notepad.exe C:\\READ_ME_NOW.txt Process ID: 0x26c8",
+        "custom_fields": {
+            "winlog_event_id": 4688
+        }
+    }
+]

@@ -1,0 +1,224 @@
+- hostname: "win-dc-01"
+  ip: ["10.0.20.10"]
+  id: "host-win-dc-01"
+  os_family: "windows"
+  os_name: "Windows Server 2022 Datacenter"
+  architecture: "x64"
+  criticality: "mission_critical"
+  environment: "production"
+  business_owner: "Alice Smith"
+  department: "IT Infrastructure"
+  installed_software: ["Active Directory Domain Services", "DNS Server", "DHCP Server"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["domain_controller", "core_infra"]
+
+- hostname: "win-sql-01"
+  ip: ["10.0.30.15"]
+  id: "host-win-sql-01"
+  os_family: "windows"
+  os_name: "Windows Server 2019 Standard"
+  architecture: "x64"
+  criticality: "high"
+  environment: "production"
+  business_owner: "Bob Johnson"
+  department: "Database Admin"
+  installed_software: ["Microsoft SQL Server 2019", "SSMS"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["database", "mssql"]
+
+- hostname: "win-exch-01"
+  ip: ["10.0.20.12"]
+  id: "host-win-exch-01"
+  os_family: "windows"
+  os_name: "Windows Server 2019 Standard"
+  architecture: "x64"
+  criticality: "high"
+  environment: "production"
+  business_owner: "Charlie Brown"
+  department: "IT Infrastructure"
+  installed_software: ["Microsoft Exchange Server 2019", "IIS"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["mail", "exchange"]
+
+- hostname: "win-file-01"
+  ip: ["10.0.20.20"]
+  id: "host-win-file-01"
+  os_family: "windows"
+  os_name: "Windows Server 2022 Standard"
+  architecture: "x64"
+  criticality: "medium"
+  environment: "production"
+  business_owner: "Diana Prince"
+  department: "Finance"
+  installed_software: ["File and Storage Services", "DFSR"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["file_server"]
+
+- hostname: "win-wrk-01"
+  ip: ["10.0.20.101"]
+  id: "host-win-wrk-01"
+  os_family: "windows"
+  os_name: "Windows 11 Enterprise"
+  architecture: "x64"
+  criticality: "low"
+  environment: "production"
+  business_owner: "Edward Elric"
+  department: "Engineering"
+  installed_software: ["VS Code", "Git", "Docker Desktop", "Chrome"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["workstation", "developer"]
+
+- hostname: "win-wrk-02"
+  ip: ["10.0.20.102"]
+  id: "host-win-wrk-02"
+  os_family: "windows"
+  os_name: "Windows 11 Enterprise"
+  architecture: "x64"
+  criticality: "low"
+  environment: "production"
+  business_owner: "Fiona Gallagher"
+  department: "HR"
+  installed_software: ["Microsoft Office 365", "Slack", "Chrome"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["workstation", "hr"]
+
+- hostname: "win-wrk-03"
+  ip: ["10.0.20.103"]
+  id: "host-win-wrk-03"
+  os_family: "windows"
+  os_name: "Windows 11 Enterprise"
+  architecture: "x64"
+  criticality: "low"
+  environment: "production"
+  business_owner: "George Costanza"
+  department: "Finance"
+  installed_software: ["Microsoft Office 365", "SAP Client", "Chrome"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["workstation", "finance"]
+
+- hostname: "win-wrk-04"
+  ip: ["10.0.20.104"]
+  id: "host-win-wrk-04"
+  os_family: "windows"
+  os_name: "Windows 11 Enterprise"
+  architecture: "x64"
+  criticality: "low"
+  environment: "production"
+  business_owner: "Harry Potter"
+  department: "Marketing"
+  installed_software: ["Adobe Creative Cloud", "Chrome"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["workstation", "marketing"]
+
+- hostname: "win-wrk-05"
+  ip: ["10.0.20.105"]
+  id: "host-win-wrk-05"
+  os_family: "windows"
+  os_name: "Windows 10 Enterprise"
+  architecture: "x64"
+  criticality: "low"
+  environment: "production"
+  business_owner: "Irene Adler"
+  department: "Legal"
+  installed_software: ["Microsoft Office 365", "Chrome"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["workstation", "legal"]
+
+- hostname: "win-wrk-06"
+  ip: ["10.0.20.106"]
+  id: "host-win-wrk-06"
+  os_family: "windows"
+  os_name: "Windows 11 Enterprise"
+  architecture: "x64"
+  criticality: "low"
+  environment: "production"
+  business_owner: "John Watson"
+  department: "Sales"
+  installed_software: ["Salesforce Client", "Chrome"]
+  edr_enabled: true
+  av_enabled: true
+  tags: ["workstation", "sales"]
+
+- hostname: "nix-web-01"
+  ip: ["10.0.10.15"]
+  id: "host-nix-web-01"
+  os_family: "linux"
+  os_name: "Ubuntu 22.04.3 LTS"
+  architecture: "x86_64"
+  criticality: "high"
+  environment: "production"
+  business_owner: "Klaus Mikaelson"
+  department: "Engineering"
+  installed_software: ["nginx", "php-fpm", "node.js"]
+  edr_enabled: true
+  av_enabled: false
+  tags: ["webserver", "ubuntu"]
+
+- hostname: "nix-db-01"
+  ip: ["10.0.30.20"]
+  id: "host-nix-db-01"
+  os_family: "linux"
+  os_name: "Rocky Linux 9.2"
+  architecture: "x86_64"
+  criticality: "high"
+  environment: "production"
+  business_owner: "Lois Lane"
+  department: "Database Admin"
+  installed_software: ["postgresql", "redis"]
+  edr_enabled: true
+  av_enabled: false
+  tags: ["database", "postgres"]
+
+- hostname: "nix-app-01"
+  ip: ["10.0.30.25"]
+  id: "host-nix-app-01"
+  os_family: "linux"
+  os_name: "Debian 12"
+  architecture: "x86_64"
+  criticality: "medium"
+  environment: "production"
+  business_owner: "Michael Scott"
+  department: "Engineering"
+  installed_software: ["java-openjdk-17", "tomcat"]
+  edr_enabled: true
+  av_enabled: false
+  tags: ["appserver", "debian"]
+
+- hostname: "nix-proxy-01"
+  ip: ["10.0.10.5"]
+  id: "host-nix-proxy-01"
+  os_family: "linux"
+  os_name: "Ubuntu 22.04.3 LTS"
+  architecture: "x86_64"
+  criticality: "high"
+  environment: "production"
+  business_owner: "Nancy Drew"
+  department: "IT Security"
+  installed_software: ["squid", "iptables"]
+  edr_enabled: true
+  av_enabled: false
+  tags: ["proxy", "gateway"]
+
+- hostname: "nix-jump-01"
+  ip: ["10.0.20.5"]
+  id: "host-nix-jump-01"
+  os_family: "linux"
+  os_name: "Rocky Linux 9.2"
+  architecture: "x86_64"
+  criticality: "high"
+  environment: "production"
+  business_owner: "Oscar Martinez"
+  department: "IT Infrastructure"
+  installed_software: ["openssh-server", "fail2ban"]
+  edr_enabled: true
+  av_enabled: false
+  tags: ["bastion", "jumpbox"]
