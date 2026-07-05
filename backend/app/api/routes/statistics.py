@@ -16,10 +16,4 @@ async def get_statistics(
     Computes dashboard telemetry summary metrics, including event/alert counts,
     distributions by techniques, target hosts, and users.
     """
-    # Summary aggregation aggregate indicators
-    return {
-        "total_events": 0,
-        "event_distribution": {},
-        "by_host": {},
-        "by_user": {}
-    }
+    return es_service.statistics()

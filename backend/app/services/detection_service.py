@@ -520,20 +520,34 @@ class DetectionService:
         return alerts
 
     def save_alerts(self, simulation_id: uuid.UUID, alerts: List[Dict[str, Any]]) -> None:
-        """Saves generated alerts to backend/data/alerts/<simulation_id>.json."""
+        """Saves generated alerts to backend/data/alerts/<simulation_id>.json (fallback) and Elasticsearch (primary)."""
         self.data_dir.mkdir(parents=True, exist_ok=True)
         file_path = self.data_dir / f"{simulation_id}.json"
         
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(alerts, f, default=str, indent=4)
+        # 1. Write fallback JSON file
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(alerts, f, default=str, indent=4)
+            logger.bind(simulation_id=str(simulation_id)).info(f"Local JSON fallback: Stored {len(alerts)} alerts to file {file_path.name}")
+        except Exception as exc:
+            logger.error(f"Failed to save local alerts JSON fallback: {exc}")
             
-        logger.bind(
-            simulation_id=str(simulation_id),
-            alerts_stored=len(alerts)
-        ).info(f"Alerts Saved: Stored {len(alerts)} alerts to file {file_path.name}")
+        # 2. Index in Elasticsearch if active
+        if self.es.is_active:
+            try:
+                self.es.bulk_index_alerts(simulation_id, alerts)
+            except Exception as exc:
+                logger.error(f"Failed to index alerts in Elasticsearch: {exc}")
 
     def load_alerts(self, simulation_id: uuid.UUID) -> List[Dict[str, Any]]:
-        """Loads alerts for a specific simulation_id."""
+        """Loads alerts for a specific simulation_id (using Elasticsearch if active, else fallback JSON)."""
+        if self.es.is_active:
+            try:
+                return self.es.search_alerts(simulation_id=simulation_id, limit=1000)
+            except Exception as exc:
+                logger.warning(f"Elasticsearch load_alerts failed: {exc}. Trying JSON fallback.")
+                
+        # Fallback reading
         file_path = self.data_dir / f"{simulation_id}.json"
         if not file_path.exists():
             return []
@@ -541,13 +555,30 @@ class DetectionService:
             return json.load(f)
 
     def delete_alerts(self, simulation_id: uuid.UUID) -> bool:
-        """Deletes alerts associated with a simulation_id."""
+        """Deletes alerts associated with a simulation_id from Elasticsearch and fallback JSON."""
+        deleted = False
+        
+        # 1. Delete from Elasticsearch if active
+        if self.es.is_active:
+            try:
+                res = self.es.delete_simulation(simulation_id)
+                if res.get("deleted"):
+                    deleted = True
+            except Exception as exc:
+                logger.error(f"Failed to delete simulation alerts from Elasticsearch: {exc}")
+                
+        # 2. Clean up local fallback JSON file if it exists
         file_path = self.data_dir / f"{simulation_id}.json"
-        if not file_path.exists():
-            return False
-        file_path.unlink()
-        logger.bind(simulation_id=str(simulation_id)).info("Delete Request: Simulation alerts deleted from storage")
-        return True
+        if file_path.exists():
+            try:
+                file_path.unlink()
+                deleted = True
+            except Exception as exc:
+                logger.error(f"Failed to delete local alerts JSON fallback file: {exc}")
+                
+        if deleted:
+            logger.bind(simulation_id=str(simulation_id)).info("Delete Request: Simulation alerts deleted from storage")
+        return deleted
 
     def list_simulations_with_alerts(self) -> List[uuid.UUID]:
         """Lists all simulation IDs that have stored alerts."""
@@ -576,25 +607,44 @@ class DetectionService:
         rule_name: Optional[str] = None,
         limit: int = 50
     ) -> List[Dict[str, Any]]:
-        """Searches generated threat detection alerts across stored alerts."""
+        """Searches generated threat detection alerts across stored alerts using Elasticsearch (or JSON fallback)."""
+        if self.es.is_active:
+            try:
+                return self.es.search_alerts(
+                    simulation_id=simulation_id,
+                    severity=severity,
+                    rule_name=rule_name,
+                    limit=limit
+                )
+            except Exception as exc:
+                logger.warning(f"Elasticsearch search_alerts failed: {exc}. Trying JSON fallback search.")
+
+        # Local JSON Fallback Search
         logger.bind(
             simulation_id=str(simulation_id) if simulation_id else None,
             severity=severity,
             rule_name=rule_name,
             limit=limit
-        ).info("Search Requests: Querying alert logs")
+        ).info("Search Requests: Querying local alert JSON files fallback")
 
         sim_ids = [simulation_id] if simulation_id else self.list_simulations_with_alerts()
         
         matches = []
         for sim_id in sim_ids:
-            alerts = self.load_alerts(sim_id)
-            for alert in alerts:
-                if severity and alert.get("severity", "").lower() != severity.lower():
-                    continue
-                if rule_name and rule_name.lower() not in alert.get("rule_name", "").lower():
-                    continue
-                matches.append(alert)
-                if len(matches) >= limit:
-                    return matches
+            file_path = self.data_dir / f"{sim_id}.json"
+            if not file_path.exists():
+                continue
+            try:
+                with open(file_path, "r", encoding="utf-8") as f:
+                    alerts = json.load(f)
+                for alert in alerts:
+                    if severity and alert.get("severity", "").lower() != severity.lower():
+                        continue
+                    if rule_name and rule_name.lower() not in alert.get("rule_name", "").lower():
+                        continue
+                    matches.append(alert)
+                    if len(matches) >= limit:
+                        return matches
+            except Exception:
+                continue
         return matches

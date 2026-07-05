@@ -63,9 +63,15 @@ class DetectionsResponse(BaseModel):
 class StatisticsResponse(BaseModel):
     """Dashboard statistics and aggregate metrics summary."""
     total_events: int = Field(..., description="Overall event logs indexed")
-    event_distribution: Dict[str, int] = Field(..., description="Aggregated event types counts")
-    by_host: Dict[str, int] = Field(..., description="Aggregate event counts grouped by hostname")
-    by_user: Dict[str, int] = Field(..., description="Aggregate event counts grouped by username")
+    total_alerts: int = Field(..., description="Overall alert logs indexed")
+    events_by_platform: Dict[str, int] = Field(..., description="Aggregate event counts grouped by platform family")
+    events_by_category: Dict[str, int] = Field(..., description="Aggregate event counts grouped by ECS category")
+    top_hosts: Dict[str, int] = Field(..., description="Top hosts by event volume")
+    top_users: Dict[str, int] = Field(..., description="Top users by event volume")
+    top_mitre_techniques: Dict[str, int] = Field(..., description="Top MITRE techniques by alert match counts")
+    alerts_by_severity: Dict[str, int] = Field(..., description="Alert volume grouped by severity rating")
+    alerts_by_rule: Dict[str, int] = Field(..., description="Alert volume grouped by detector rule name")
+    daily_timeline: Dict[str, int] = Field(..., description="Chronological timeline bucketed daily")
 
 class EventResponse(BaseModel):
     """Schema representing an ECS-compliant log event."""

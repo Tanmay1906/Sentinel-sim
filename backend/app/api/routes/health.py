@@ -12,12 +12,21 @@ async def health_check(
     es_service: ElasticsearchService = Depends(get_elasticsearch_service)
 ):
     """
-    Performs quick connectivity and latency tests to Elasticsearch database cluster
-    and returning overall status of the Sentinel-Sim services.
+    Performs connectivity tests to the Elasticsearch database cluster
+    and returns the overall status of the Sentinel-Sim control plane.
     """
-    es_health = await es_service.check_health()
+    es_health = es_service.health()
+    
+    # The API is considered healthy if the database connection is green/yellow,
+    # or if we are gracefully running in JSON storage fallback mode.
+    status = "healthy"
+    if es_health.get("status") == "red":
+        status = "degraded"
+    elif not es_health.get("connected") and es_health.get("storage_mode") != "json":
+        status = "unhealthy"
+
     return {
-        "status": "healthy",
+        "status": status,
         "api_alive": True,
         "elasticsearch": es_health
     }

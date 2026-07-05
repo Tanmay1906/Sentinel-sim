@@ -11,7 +11,8 @@ from app.services.elasticsearch_service import ElasticsearchService
 
 class EventService:
     """
-    Service responsible for saving, loading, deleting, and searching simulation log events using local storage.
+    Service responsible for saving, loading, deleting, and searching simulation log events.
+    Uses Elasticsearch as the primary store and local JSON files as fallback.
     """
     def __init__(self, es_service: ElasticsearchService):
         self.es_service = es_service
@@ -19,7 +20,7 @@ class EventService:
         self.data_dir = Path(__file__).resolve().parents[2] / "data" / "events"
 
     def save_events(self, simulation_id: uuid.UUID, events: List[Any]) -> None:
-        """Persists every generated LogEvent for a simulation to a local JSON file."""
+        """Persists every generated LogEvent for a simulation to local JSON (fallback) and Elasticsearch (primary)."""
         self.data_dir.mkdir(parents=True, exist_ok=True)
         file_path = self.data_dir / f"{simulation_id}.json"
         
@@ -33,16 +34,30 @@ class EventService:
             else:
                 serialized_events.append(json.loads(json.dumps(event, default=str)))
                 
-        with open(file_path, "w", encoding="utf-8") as f:
-            json.dump(serialized_events, f, indent=4)
+        # 1. Always write to local JSON storage first (as a reliable fallback)
+        try:
+            with open(file_path, "w", encoding="utf-8") as f:
+                json.dump(serialized_events, f, indent=4)
+            logger.bind(simulation_id=str(simulation_id)).info(f"Local JSON fallback: Stored {len(serialized_events)} events to file {file_path.name}")
+        except Exception as exc:
+            logger.error(f"Failed to write local JSON fallback file: {exc}")
             
-        logger.bind(
-            simulation_id=str(simulation_id),
-            events_stored=len(events)
-        ).info(f"Simulation Saved: Stored {len(events)} events to file {file_path.name}")
+        # 2. Try to index in Elasticsearch if active
+        if self.es_service.is_active:
+            try:
+                self.es_service.bulk_index_events(simulation_id, serialized_events)
+            except Exception as exc:
+                logger.error(f"Failed to index events in Elasticsearch: {exc}")
 
     def load_events(self, simulation_id: uuid.UUID) -> List[Dict[str, Any]]:
-        """Loads events for a specific simulation_id."""
+        """Loads events for a specific simulation_id (using Elasticsearch if active, else local JSON)."""
+        if self.es_service.is_active:
+            try:
+                return self.es_service.search_events(simulation_id=simulation_id, limit=1000)
+            except Exception as exc:
+                logger.warning(f"Elasticsearch load_events failed: {exc}. Falling back to local JSON.")
+        
+        # Fallback reading
         file_path = self.data_dir / f"{simulation_id}.json"
         if not file_path.exists():
             raise FileNotFoundError(f"No events found for simulation: {simulation_id}")
@@ -51,16 +66,33 @@ class EventService:
             return json.load(f)
 
     def delete_events(self, simulation_id: uuid.UUID) -> bool:
-        """Deletes stored events for a specific simulation_id."""
+        """Deletes stored events for a specific simulation_id from both Elasticsearch and local fallback files."""
+        deleted = False
+        
+        # 1. Delete from Elasticsearch if active
+        if self.es_service.is_active:
+            try:
+                res = self.es_service.delete_simulation(simulation_id)
+                if res.get("deleted"):
+                    deleted = True
+            except Exception as exc:
+                logger.error(f"Failed to delete simulation events from Elasticsearch: {exc}")
+                
+        # 2. Clean up local JSON fallback file if it exists
         file_path = self.data_dir / f"{simulation_id}.json"
-        if not file_path.exists():
-            return False
-        file_path.unlink()
-        logger.bind(simulation_id=str(simulation_id)).info("Delete Requests: Simulation events deleted from storage")
-        return True
+        if file_path.exists():
+            try:
+                file_path.unlink()
+                deleted = True
+            except Exception as exc:
+                logger.error(f"Failed to delete local JSON fallback file: {exc}")
+                
+        if deleted:
+            logger.bind(simulation_id=str(simulation_id)).info("Delete Requests: Simulation events deleted from storage")
+        return deleted
 
     def list_simulations(self) -> List[uuid.UUID]:
-        """Lists all simulation IDs that have stored events."""
+        """Lists all simulation IDs that have stored events (using local directory as fallback index)."""
         if not self.data_dir.exists():
             return []
         simulations = []
@@ -78,7 +110,7 @@ class EventService:
             for event in events:
                 if event.get("id") == str(event_id):
                     return event
-        except FileNotFoundError:
+        except Exception:
             pass
         return None
 
@@ -90,9 +122,26 @@ class EventService:
         event_id: Optional[int] = None,
         platform: Optional[str] = None,
         severity: Optional[str] = None,
-        limit: int = 100
+        limit: int = 100,
+        offset: int = 0
     ) -> List[Dict[str, Any]]:
-        """Searches events across stored simulations based on provided criteria."""
+        """Searches events across stored simulations using Elasticsearch (or local JSON files as fallback)."""
+        if self.es_service.is_active:
+            try:
+                return self.es_service.search_events(
+                    simulation_id=simulation_id,
+                    host=host,
+                    user=user,
+                    event_id=event_id,
+                    platform=platform,
+                    severity=severity,
+                    limit=limit,
+                    offset=offset
+                )
+            except Exception as exc:
+                logger.warning(f"Elasticsearch search_events failed: {exc}. Trying JSON fallback search.")
+
+        # Local JSON Fallback Search
         logger.bind(
             simulation_id=str(simulation_id) if simulation_id else None,
             host=host,
@@ -101,7 +150,7 @@ class EventService:
             platform=platform,
             severity=severity,
             limit=limit
-        ).info("Search Requests: Querying event logs")
+        ).info("Search Requests: Querying local event JSON files fallback")
 
         # Resolve simulations to inspect
         sim_ids = [simulation_id] if simulation_id else self.list_simulations()
@@ -109,7 +158,13 @@ class EventService:
         matches = []
         for sim_id in sim_ids:
             try:
-                events = self.load_events(sim_id)
+                # Bypass es_service lookup logic and read file directly during fallback search
+                file_path = self.data_dir / f"{sim_id}.json"
+                if not file_path.exists():
+                    continue
+                with open(file_path, "r", encoding="utf-8") as f:
+                    events = json.load(f)
+                    
                 for event in events:
                     # Apply filters
                     if host:
@@ -160,7 +215,7 @@ class EventService:
                     matches.append(event)
                     if len(matches) >= limit:
                         return matches
-            except FileNotFoundError:
+            except Exception:
                 continue
                 
         return matches
