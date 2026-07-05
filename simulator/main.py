@@ -3,7 +3,7 @@ import argparse
 import sys
 import time
 from pathlib import Path
-from typing import List, Dict, Type
+from typing import List, Dict, Type, Any
 
 # pyrefly: ignore [missing-import]
 from loguru import logger
@@ -53,19 +53,24 @@ def run_simulation(
     scenario_name: str, 
     seed: int = 42, 
     replay: bool = False,
-    config_path: str = "simulator/config"
+    config_path: str = "simulator/config",
+    simulation_id: Any = None
 ) -> List[LogEvent]:
     """
     Core orchestration function. 
     Can be called by CLI or future API backend.
     """
+    from uuid import UUID, uuid4
     if scenario_name not in SCENARIOS:
         raise ValueError(f"Unknown scenario: {scenario_name}")
+
+    final_sim_id = simulation_id or uuid4()
 
     logger.bind(
         scenario=scenario_name,
         seed=seed,
-        replay=replay
+        replay=replay,
+        simulation_id=str(final_sim_id)
     ).info("Simulation starting")
 
     # 1. Load Entities
@@ -74,6 +79,7 @@ def run_simulation(
 
     # 2. Setup Configuration
     sim_config = SimulationConfig(
+        simulation_id=final_sim_id,
         scenario_id=scenario_name,
         seed=seed,
         replay_mode=replay
